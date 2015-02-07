@@ -1,8 +1,8 @@
 '--------------------------------------------------------------
 '                   Thomas Jensen | uCtrl.net
 '--------------------------------------------------------------
-'  file: ALARM_DISABLING_UNIT_2 v1.0
-'  date: 19/05/2007
+'  file: ALARM_DISABLING_UNIT_2 v1.1
+'  date: 01/05/2010
 '--------------------------------------------------------------
 $regfile = "attiny2313.dat"
 $crystal = 8000000
@@ -24,11 +24,15 @@ Dim Lifesignal As Integer
 Dim Lystaarn_delay As Integer
 Dim Reset_aktiv As Bit
 Dim Led As Integer
+Dim Service_exit As Word
+Dim Service_enter As Integer
 
 Lifesignal = 11
 Lystaarn_delay = 20
 Reset_aktiv = 0
 Led = 0
+Service_enter = 0
+Service_exit = 0
 
 Portb = 0
 
@@ -81,7 +85,46 @@ If Lifesignal = 3 Then Portb.1 = 1
 If Lifesignal = 1 Then Portb.1 = 0
 If Lifesignal = 0 Then Lifesignal = 11
 
+'handle service mode timer
+If Pind.0 = 1 And Portb.0 = 0 Then Incr Service_enter
+If Pind.0 = 0 Then Service_enter = 0
+If Service_enter = 200 Then
+   Service_enter = 0
+   For A = 1 To 10
+      Portb.0 = Not Portb.0
+      Reset Watchdog
+      Waitms 100
+   Next A
+   Goto Service
+End If
+
 Reset Watchdog
 Waitms 100
 Goto Main
+End
+
+'service loop
+Do
+Service:
+Portb.0 = 0
+Portb.2 = 1
+
+'lifesignal
+Portb.1 = Not Portb.1
+
+'exit loop
+If Pind.0 = 1 Or Service_exit > 54000 Then
+   Portb.1 = 0
+   Lifesignal = 11
+   Service_exit = 0
+   Lystaarn_delay = 20
+   Reset_aktiv = 1
+   Goto Main
+End If
+
+'do loop
+Incr Service_exit
+Reset Watchdog
+Waitms 100
+Loop
 End

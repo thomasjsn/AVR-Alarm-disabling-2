@@ -1,6 +1,6 @@
 Report       : ADU2
 Date         : 02-07-2015
-Time         : 23:30:27
+Time         : 23:34:12
 
 Compiler     : BASCOM-AVR LIBRARY V 2.0.7.8
 Processor    : TINY2313
@@ -8,20 +8,20 @@ SRAM         : 80 hex
 EEPROM       : 80 hex
 ROMSIZE      : 800 hex
 
-ROMIMAGE     : 2AC hex  -> Will fit into ROM
-ROMIMAGE     :  684 dec
-FLASH USED   :  33  %
+ROMIMAGE     : 3C4 hex  -> Will fit into ROM
+ROMIMAGE     :  964 dec
+FLASH USED   :  47  %
 BAUD         : 9600 Baud
 XTAL         : 8000000 Hz
 BAUD error   : 0.16%
 
 Stack start  : DF hex
-Stack size   : 28 hex
-S-Stacksize  : 10 hex
-S-Stackstart : B8 hex
-Framesize    : 20 hex
-Framestart   : 88 hex
-Space left   :  31  dec
+Stack size   : 20 hex
+S-Stacksize  : 8 hex
+S-Stackstart : C0 hex
+Framesize    : 18 hex
+Framestart   : A0 hex
+Space left   :  51  dec
 
 LCD DB7      : PORTB.7
 LCD DB6      : PORTB.6
@@ -93,6 +93,8 @@ LIFESIGNAL                       Integer           0061          97
 LYSTAARN_DELAY                   Integer           0063          99 
 RESET_AKTIV                      Bit [7]           0065          101 
 LED                              Integer           0066          102 
+SERVICE_EXIT                     Word              0068          104 
+SERVICE_ENTER                    Integer           006A          106 
 
 --------------------------------------------------------------------------------
 Constant                         Value
@@ -503,7 +505,7 @@ RSTDISBL                         7
 SELFPRGEN                        0
 _DATE_FORMAT                     0
 _DATE_SEPARATOR                  92
-_GSTRBUF                         136
+_GSTRBUF                         160
 _DECIMALPOINT                    46
 _RTSCTS                          0
 _RTSCTS1                         0
@@ -534,9 +536,9 @@ _PRDWORD                         0
 _PBIN_EXTENDED                   0
 _BIGSTRINGS                      0
 _FPROTECT                        0
-_HWSTACK_LOW                     &H00B7
-_SWSTACK_LOW                     &H00A8
-_FRAME_HIGH                      &H00A9
+_HWSTACK_LOW                     &H00BF
+_SWSTACK_LOW                     &H00B8
+_FRAME_HIGH                      &H00B9
 _XMEGA                           0
 CBITINFINITY                     0
 CMBITINFINITY                    1
