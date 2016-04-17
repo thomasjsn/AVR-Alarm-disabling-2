@@ -2,7 +2,7 @@
 
 Simple unit to silence the audible alarm on a production equipment, uses an AVR ATtiny2313 microcontroller.
 
-![Alarm disabling unit for production equipment #2](https://cdn.uctrl.net/images/sized/width/md/1/4/401-width-md.jpeg)
+![Alarm disabling unit for production equipment #2](https://files.uctrl.net/github/modules/89.jpeg)
 
 Written in basic, using [Bascom-AVR](http://www.mcselec.com/).
 
