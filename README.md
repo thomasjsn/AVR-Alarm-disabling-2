@@ -1,8 +1,8 @@
-## Source code for project: [Alarm disabling unit for production equipment #2](https://uctrl.io/p/89)
+## Source code for project: [Alarm disabling unit for production equipment #2](https://uctrl.io/projects/avr-alarm-disabling-unit-for-production-equipment-8g2zkg)
 
 Simple unit to silence the audible alarm on a production equipment, uses an AVR ATtiny2313 microcontroller.
 
-![Alarm disabling unit for production equipment #2](http://i.imgur.com/Nbxxw39l.jpg)
+![Alarm disabling unit for production equipment #2](https://static.uctrl.net/imgs/3gzlql.jpeg)
 
 Written in basic, using [Bascom-AVR](http://www.mcselec.com/).
 
